@@ -50,7 +50,6 @@
 #include "../libhue/groups.h"
 #include "../libhue/group.h"
 #include "../libhue/lightsfiltermodel.h"
-#include "../libhue/keystore.h"
 
 static QObject* hueBridgeInstance(QQmlEngine* /* engine */, QJSEngine* /* scriptEngine */)
 {
@@ -73,8 +72,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<LightsFilterModel>(uri, 0, 1, "LightsFilterModel");
 
     QQmlApplicationEngine engine(QUrl("qrc:/hue/Shine.qml"));
-    engine.rootContext()->setContextProperty("keystore", new KeyStore());
-//    engine.addImportPath(QDir::currentPath() + "/../plugin/Hue/");
+    //QQmlApplicationEngine engine(QUrl("qrc:/main.qml"));
 
     return app.exec();
 }

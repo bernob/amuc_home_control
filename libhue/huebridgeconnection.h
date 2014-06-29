@@ -28,6 +28,8 @@
 #include <QVariantMap>
 #include <QPointer>
 
+#define BRIDGE_IP (192U << 24) + (168U << 16) + (1U << 8) + (29U)
+
 class QNetworkAccessManager;
 class QNetworkReply;
 
@@ -50,43 +52,29 @@ class HueBridgeConnection: public QObject
     Q_OBJECT
 
     Q_PROPERTY(QString apiKey READ apiKey WRITE setApiKey NOTIFY apiKeyChanged)
-    Q_PROPERTY(bool discoveryError READ discoveryError NOTIFY discoveryErrorChanged)
-    // TODO: Convert this to a model holding all the discovered bridges
-    Q_PROPERTY(bool bridgeFound READ bridgeFound NOTIFY bridgeFoundChanged)
-    Q_PROPERTY(QString connectedBridge READ connectedBridge NOTIFY connectedBridgeChanged)
 
 public:
     static HueBridgeConnection* instance();
 
-    QString apiKey() const;
-    void setApiKey(const QString &apiKey);
-
-    bool discoveryError() const;
-    bool bridgeFound() const;
-    QString connectedBridge() const;
-
-    Q_INVOKABLE void createUser(const QString &devicetype, const QString &username);
+    QString apiKey() const { return m_apiKey; }
+    void setApiKey(const QString &apiKey)
+    {
+        if (m_apiKey != apiKey) {
+            m_apiKey = apiKey;
+            emit apiKeyChanged();
+        }
+    }
 
     int get(const QString &path, QObject *sender, const QString &slot);
     int deleteResource(const QString &path, QObject *sender, const QString &slot);
     int post(const QString &path, const QVariantMap &params, QObject *sender, const QString &slot);
-    int put(const QString &path, const QVariantMap &params, QObject *sender, const QString &slot);
+    int put(const QString &path, const QVariantMap &params, QObject *sender, const QString &slot);  
 
 signals:
     void apiKeyChanged();
-    void discoveryErrorChanged();
-    void bridgeFoundChanged();
-    void connectedBridgeChanged();
     void stateChanged();
 
-    void createUserFailed(const QString &errorMessage);
-
 private slots:
-    void onDiscoveryError();
-    void onFoundBridge(QHostAddress bridge);
-    void onNoBridgesFound();
-
-    void createUserFinished();
     void slotOpFinished();
 
 private:

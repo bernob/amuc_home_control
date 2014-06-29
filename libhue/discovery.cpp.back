@@ -23,7 +23,7 @@
 #include <QTimer>
 
 // Discovery timeout in seconds
-const unsigned int DISCOVERY_TIMEOUT = 10;
+const unsigned int DISCOVERY_TIMEOUT = 3;
 
 Discovery::Discovery(QObject *parent) :
     QUdpSocket(parent),
@@ -58,7 +58,7 @@ void Discovery::findBridges()
               "ST: libhue:idl\r\n");
     b.arg(DISCOVERY_TIMEOUT);
 
-    qDebug() << "writing datagram" << b;
+//    qDebug() << "writing datagram" << b;
     m_timeout->start(DISCOVERY_TIMEOUT * 1000);
     if (writeDatagram(b.toUtf8(), QHostAddress("239.255.255.250"), 1900) < 0) {
         emit error();
@@ -69,7 +69,6 @@ void Discovery::onTimeout()
 {
     if (m_reportedBridges.isEmpty())
         emit noBridgesFound();
-    //emit foundBridge(QHostAddress(192168129));
 }
 
 void Discovery::onReadyRead()
@@ -82,7 +81,7 @@ void Discovery::onReadyRead()
 
         readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
-        qDebug() << "got datagram" << datagram;
+//        qDebug() << "got datagram" << datagram;
         if (!m_reportedBridges.contains(sender)) {
             m_reportedBridges << sender;
             emit foundBridge(sender);

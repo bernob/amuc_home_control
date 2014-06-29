@@ -27,12 +27,7 @@
 Lights::Lights(QObject *parent) :
     QAbstractListModel(parent)
 {
-    connect(HueBridgeConnection::instance(), SIGNAL(connectedBridgeChanged()), this, SLOT(refresh()));
     refresh();
-
-#if QT_VERSION < 0x050000
-    setRoleNames(roleNames());
-#endif
 
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(refresh()));
     m_timer.start(10000);

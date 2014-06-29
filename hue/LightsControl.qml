@@ -62,7 +62,7 @@ GridLayout {
         Layout.fillHeight: true
         Layout.columnSpan: 2
         color: light.color
-        active: light.colormode == LightInterface.ColorModeHS || light.color == LightInterface.ColorModeXY
+        active: light.colormode === LightInterface.ColorModeHS || light.color === LightInterface.ColorModeXY
         onColorChanged: {
             if (pressed) {
                 light.color = color;

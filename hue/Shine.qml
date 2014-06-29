@@ -24,6 +24,7 @@ import Hue 0.1
 import QtQuick.Controls 1.0
 
 ApplicationWindow {
+    visible: true
     width: tabView.implicitWidth * 3
     minimumWidth: tabView.implicitWidth * 3
     height: tabView.implicitHeight * 3
@@ -80,9 +81,9 @@ ApplicationWindow {
             lights: lightsModel
         }
 
-//        GroupsTab {
-//            title: "Groups"
-//        }
+        GroupsTab {
+            title: "Groups"
+        }
 
         Tab {
             title: "Colors"
