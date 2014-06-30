@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>TeslaStatusBar.qml</file>
         <file>tesla/Tesla.qml</file>
         <file>tesla/Car.js</file>
         <file>hue/ColorPicker.qml</file>
@@ -45,5 +46,21 @@
         <file>images/car/nav_clim_off.png</file>
         <file>images/car/nav_clim_on.png</file>
         <file>images/light-bulb-icon.png</file>
+        <file>images/teslalogo.png</file>
+        <file>images/arrows.png</file>
+        <file>images/background2.jpg</file>
+        <file>images/glass.png</file>
+        <file>images/handle.png</file>
+        <file>images/plug.png</file>
+        <file>images/rotate.png</file>
+        <file>images/toggle.png</file>
+        <file>QUItBatteryComponent/images/bar_level2.png</file>
+        <file>QUItBatteryComponent/images/battery_bar.png</file>
+        <file>QUItBatteryComponent/images/battery2.png</file>
+        <file>QUItBatteryComponent/images/lightning.png</file>
+        <file>QUItBatteryComponent/images/particle.png</file>
+        <file>QUItBatteryComponent/QUItBattery.qml</file>
+        <file>Slider.qml</file>
+        <file>ToggleButton.qml</file>
     </qresource>
 </RCC>

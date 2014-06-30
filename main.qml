@@ -40,37 +40,44 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.1
 import Hue 0.1
 import "tesla"
 import "hue"
 
 ApplicationWindow {
     visible: true
-    width: 1920
+    width: 768
     height: 1280
 
-//    Rectangle {
-//        color: "#212126"
-//        anchors.fill: parent
-//    }
-
-//    // Implements back key navigation
-//    Keys.onReleased: {
-//        if (event.key === Qt.Key_Back) {
-//            if (stackView.depth > 1) {
-//                stackView.pop();
-//                event.accepted = true;
-//            } else { Qt.quit(); }
-//        }
-//    }
     Lights {
         id: lightsModel
     }
-    LightsTab {
-        lights: lightsModel
+    Groups {
+        id: groups
+    }
+    LauncherClient {
+        id: launcherClient
     }
 
-//    Tesla {
+    Image {
+        anchors.fill: parent
+        source: "images/background2.jpg"
+    }
 
-//    }
+    Button {
+        id: lights
+        width: parent.width; height: 860;
+        onClicked: {
+            launcherClient.launchApp("com.philips.lighting.hue")
+            //groups.get(0).on = !groups.get(0).on
+        }
+    }
+
+    TeslaStatusBar {
+        height: 400; width: parent.width;
+        anchors.top: lights.bottom
+
+        startTeslaAppToggle.onCheckedChanged: launcherClient.launchApp("com.teslamotors.tesla")
+    }
 }

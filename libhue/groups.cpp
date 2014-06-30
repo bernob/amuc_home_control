@@ -124,15 +124,11 @@ void Groups::groupDescriptionChanged()
     int idx = m_list.indexOf(group);
     QModelIndex modelIndex = index(idx);
 
-#if QT_VERSION >= 0x050000
     QVector<int> roles = QVector<int>()
             << RoleId
             << RoleName;
 
     emit dataChanged(modelIndex, modelIndex, roles);
-#else
-    emit dataChanged(modelIndex, modelIndex);
-#endif
 }
 
 void Groups::groupStateChanged()
@@ -141,7 +137,6 @@ void Groups::groupStateChanged()
     int idx = m_list.indexOf(group);
     QModelIndex modelIndex = index(idx);
 
-#if QT_VERSION >= 0x050000
     QVector<int> roles = QVector<int>()
             << RoleOn
             << RoleBrightness
@@ -154,9 +149,6 @@ void Groups::groupStateChanged()
             << RoleReachable;
 
     emit dataChanged(modelIndex, modelIndex, roles);
-#else
-    emit dataChanged(modelIndex, modelIndex);
-#endif
 }
 
 void Groups::groupLightsChanged()
@@ -165,12 +157,8 @@ void Groups::groupLightsChanged()
     int idx = m_list.indexOf(group);
     QModelIndex modelIndex = index(idx);
 
-#if QT_VERSION >= 0x050000
     QVector<int> roles = QVector<int>() << RoleLightIds;
     emit dataChanged(modelIndex, modelIndex, roles);
-#else
-    emit dataChanged(modelIndex, modelIndex);
-#endif
 }
 
 void Groups::createGroup(const QString &name, const QList<int> &lights)

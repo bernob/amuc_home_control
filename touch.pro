@@ -1,6 +1,8 @@
-QT += qml quick
+QT += qml quick androidextras
 TARGET = touch
 !android: !ios: !blackberry: qtHaveModule(widgets): QT += widgets
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
 
 include(src/src.pri)
 include(libhue/libhue.pri)
@@ -16,7 +18,14 @@ OTHER_FILES += \
     hue/LightsControl.qml \
     hue/LightsTab.qml \
     hue/NewGroupWindow.qml \
-    hue/Shine.qml
+    hue/Shine.qml \
+    TeslaStatusBar.qml \
+    QUItBatteryComponent/QUItBattery.qml \
+    Slider.qml \
+    ToggleButton.qml \
+    android-sources/AndroidManifest.xml \
+    android-sources/src/org/amuc/olevigs/launcher/LauncherClient.java \
+
 
 RESOURCES += \
     resources.qrc
