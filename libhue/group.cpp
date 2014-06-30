@@ -18,7 +18,10 @@
  */
 
 #include "group.h"
+#include "lights.h"
+#include "light.h"
 #include "huebridgeconnection.h"
+#include "converttohuesatcie.h"
 
 #include <QColor>
 #include <QDebug>
@@ -67,9 +70,9 @@ quint8 Group::bri() const
 {
     quint8 bri = 0;
     foreach (int lightId, m_lightIds) {
-//        if (bri > 0 && Lights::get(lightId)->bri() != bri)
-//            return 0;
-//        bri = Lights::get(lightId)->bri();
+        if (bri > 0 && Lights::instance()->get(lightId)->bri() != bri)
+            return 0;
+        bri = Lights::instance()->get(lightId)->bri();
     }
 
     return bri;
@@ -77,9 +80,10 @@ quint8 Group::bri() const
 
 void Group::setBri(quint8 bri)
 {
-    foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setBri(bri);
-    }
+    QVariantMap params;
+    params.insert("bri", bri);
+    params.insert("on", true);
+    HueBridgeConnection::instance()->put("groups/" + QString::number(m_id) + "/action", params, this, "setStateFinished");
 
     emit stateChanged();
 }
@@ -88,9 +92,9 @@ quint16 Group::hue() const
 {
     quint16 hue = 0;
     foreach (int lightId, m_lightIds) {
-        //        if (hue > 0 && Lights::get(lightId)->hue() != hue)
-        //            return 0;
-        //        hue = Lights::get(lightId)->hue();
+                if (hue > 0 && Lights::instance()->get(lightId)->hue() != hue)
+                    return 0;
+                hue = Lights::instance()->get(lightId)->hue();
     }
 
     return hue;
@@ -99,7 +103,7 @@ quint16 Group::hue() const
 void Group::setHue(quint16 hue)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setHue(hue);
+                Lights::instance()->get(lightId)->setHue(hue);
     }
 
     emit stateChanged();
@@ -109,9 +113,9 @@ quint8 Group::sat() const
 {
     quint8 sat = 0;
     foreach (int lightId, m_lightIds) {
-        //        if (sat > 0 && Lights::get(lightId)->sat() != sat)
-        //            return 0;
-        //        sat = Lights::get(lightId)->sat();
+                if (sat > 0 && Lights::instance()->get(lightId)->sat() != sat)
+                    return 0;
+                sat = Lights::instance()->get(lightId)->sat();
     }
 
     return sat;
@@ -120,7 +124,7 @@ quint8 Group::sat() const
 void Group::setSat(quint8 sat)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setSat(sat);
+                Lights::instance()->get(lightId)->setSat(sat);
     }
 
     emit stateChanged();
@@ -133,9 +137,22 @@ QColor Group::color() const
 
 void Group::setColor(const QColor &color)
 {
-    foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setColor(color);
-    }
+    ConvertToHueSatCIE hueSatCIE(color);
+
+    QVariantMap params;
+
+    params.insert("hue", hueSatCIE.hue);
+    params.insert("sat", hueSatCIE.sat);
+    // FIXME: There is a bug in the API that it doesn't report back the set state of "sat"
+    // Lets just assume it always succeeds
+
+//        QVariantList xyList;
+//        xyList << x << y;
+//        params.insert("xy", xyList);
+
+
+    params.insert("on", true);
+    HueBridgeConnection::instance()->put("groups/" + QString::number(m_id) + "/action", params, this, "setStateFinished");
 
     emit stateChanged();
 }
@@ -144,9 +161,9 @@ QPointF Group::xy() const
 {
     QPointF p;
     foreach (int lightId, m_lightIds) {
-        //        if ((p.x() > 0 || p.y() > 0) && Lights::get(lightId)->xy() != p)
-        //            return QPointF();
-        //        p = Lights::get(lightId)->xy();
+                if ((p.x() > 0 || p.y() > 0) && Lights::instance()->get(lightId)->xy() != p)
+                    return QPointF();
+                p = Lights::instance()->get(lightId)->xy();
     }
 
     return p;
@@ -155,7 +172,7 @@ QPointF Group::xy() const
 void Group::setXy(const QPointF &xy)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setXy(xy);
+                Lights::instance()->get(lightId)->setXy(xy);
     }
 
     emit stateChanged();
@@ -165,9 +182,9 @@ quint16 Group::ct() const
 {
     quint16 ct = 0;
     foreach (int lightId, m_lightIds) {
-        //        if (ct > 0 && Lights::get(lightId)->ct() != ct)
-        //            return 0;
-        //        ct = Lights::get(lightId)->ct();
+                if (ct > 0 && Lights::instance()->get(lightId)->ct() != ct)
+                    return 0;
+                ct = Lights::instance()->get(lightId)->ct();
     }
 
     return ct;
@@ -176,7 +193,7 @@ quint16 Group::ct() const
 void Group::setCt(quint16 ct)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setCt(ct);
+                Lights::instance()->get(lightId)->setCt(ct);
     }
 
     emit stateChanged();
@@ -186,9 +203,9 @@ QString Group::alert() const
 {
     QString alert;
     foreach (int lightId, m_lightIds) {
-        //        if (!alert.isEmpty() && Lights::get(lightId)->alert() != alert)
-        //            return QString();
-        //        alert = Lights::get(lightId)->alert();
+                if (!alert.isEmpty() && Lights::instance()->get(lightId)->alert() != alert)
+                    return QString();
+                alert = Lights::instance()->get(lightId)->alert();
     }
 
     return alert;
@@ -197,7 +214,7 @@ QString Group::alert() const
 void Group::setAlert(const QString &alert)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setAlert(alert);
+                Lights::instance()->get(lightId)->setAlert(alert);
     }
 
     emit stateChanged();
@@ -207,9 +224,9 @@ QString Group::effect() const
 {
     QString effect;
     foreach (int lightId, m_lightIds) {
-        //        if (!effect.isEmpty() && Lights::get(lightId)->effect() != effect)
-        //            return QString();
-        //        effect = Lights::get(lightId)->effect();
+                if (!effect.isEmpty() && Lights::instance()->get(lightId)->effect() != effect)
+                    return QString();
+                effect = Lights::instance()->get(lightId)->effect();
     }
 
     return effect;
@@ -218,7 +235,7 @@ QString Group::effect() const
 void Group::setEffect(const QString &effect)
 {
     foreach (int lightId, m_lightIds) {
-        //        Lights::get(lightId)->setEffect(effect);
+                Lights::instance()->get(lightId)->setEffect(effect);
     }
 
     emit stateChanged();
@@ -228,9 +245,9 @@ LightInterface::ColorMode Group::colorMode() const
 {
     ColorMode colormode = ColorModeHS;
     foreach (int lightId, m_lightIds) {
-        //        if (!colormode.isEmpty() && Lights::get(lightId)->colormode() != colormode)
-        //            return QString();
-        //        colormode = Lights::get(lightId)->colormode();
+//                if (!colormode.isEmpty() && Lights::instance()->get(lightId)->colormode() != colormode)
+//                    return QString();
+//                colormode = Lights::instance()->get(lightId)->colormode();
     }
 
     return colormode;
@@ -239,8 +256,8 @@ LightInterface::ColorMode Group::colorMode() const
 bool Group::reachable() const
 {
     foreach (int lightId, m_lightIds) {
-        //        if (Lights::get(lightId)->reachable())
-        //            return true;
+                if (Lights::instance()->get(lightId)->reachable())
+                    return true;
     }
 
     return false;

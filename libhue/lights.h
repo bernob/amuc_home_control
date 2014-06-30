@@ -47,8 +47,7 @@ public:
         RoleReachable
     };
 
-    explicit Lights(QObject *parent = 0);
-
+    static Lights* instance();
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const;
@@ -63,9 +62,11 @@ private slots:
     void lightStateChanged();
 
 private:
+    Lights();
     Light* createLight(int id, const QString &name);
 
 private:
+    static Lights *s_instance;
     QList<Light*> m_list;
     QTimer m_timer;
 };

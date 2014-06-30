@@ -5,6 +5,7 @@ Item {
     width: 256
     height: 256
 
+    property alias halIsAlive: halIsAlive
     property bool checked: false
     signal toggled
 
@@ -12,10 +13,6 @@ Item {
         id: handle
         anchors.verticalCenter: parent.verticalCenter
         source: "images/hal_9000_off.png"
-        opacity: checked ? 0 : 1
-        Behavior on opacity {
-            NumberAnimation { duration: 400 }
-        }
     }
 
     Image {
@@ -25,6 +22,17 @@ Item {
         opacity: checked ? 1 : 0
         Behavior on opacity {
             NumberAnimation { duration: 200  }
+        }
+        SequentialAnimation on opacity {
+                    id: halIsAlive
+                    // Animations on properties start running by default
+                    running: false
+                    NumberAnimation { from: 0; to: 1; duration: 500; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 1; to: 0; duration: 500; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 0; to: 1; duration: 500; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 1; to: 0; duration: 500; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 0; to: 1; duration: 500; easing.type: Easing.InOutQuad }
+                    NumberAnimation { from: 1; to: checked ? 1 : 0; duration: 500; easing.type: Easing.InOutQuad }
         }
     }
 

@@ -24,13 +24,24 @@
 
 #include <QDebug>
 
-Lights::Lights(QObject *parent) :
-    QAbstractListModel(parent)
+Lights *Lights::s_instance = 0;
+
+Lights::Lights() :
+    QAbstractListModel(NULL)
 {
     refresh();
 
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(refresh()));
     m_timer.start(10000);
+}
+
+Lights *Lights::instance()
+{
+    if (!s_instance) {
+        s_instance = new Lights();
+    }
+
+    return s_instance;
 }
 
 int Lights::rowCount(const QModelIndex &parent) const

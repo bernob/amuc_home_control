@@ -57,14 +57,20 @@ static QObject* hueBridgeInstance(QQmlEngine* /* engine */, QJSEngine* /* script
     return HueBridgeConnection::instance();
 }
 
+static QObject* lightsInstance(QQmlEngine* /* engine */, QJSEngine* /* scriptEngine */)
+{
+    return Lights::instance();
+}
+
 int main(int argc, char *argv[])
 {
     QtQuickControlsApplication app(argc, argv);
 
     const char* uri = "Hue";
     HueBridgeConnection::instance();
+    Lights::instance();
     qmlRegisterSingletonType<HueBridgeConnection>(uri, 0, 1, "HueBridge", hueBridgeInstance);
-    qmlRegisterType<Lights>(uri, 0, 1, "Lights");
+    qmlRegisterSingletonType<Lights>(uri, 0, 1, "Lights", lightsInstance);
     qmlRegisterUncreatableType<Light>(uri, 0, 1, "Light", "Cannot create lights. Get them from the Lights model.");
     qmlRegisterUncreatableType<LightInterface>(uri, 0, 1, "LightInterface", "Abstract interface.");
     qmlRegisterType<Groups>(uri, 0, 1, "Groups");

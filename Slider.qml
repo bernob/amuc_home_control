@@ -2,7 +2,7 @@ import QtQuick 2.1
 
 Item {
     id: root
-    width: 200
+    width: 600
     height: 112
 
     property real value: 0
@@ -79,7 +79,7 @@ Item {
             drag.axis: Drag.XAxis
             drag.minimumX: 2
             drag.maximumX: root.xMax+2
-            onPositionChanged: {
+            onReleased: {
                 value = (maximum - minimum) * (handle.x-2) / root.xMax + minimum;
             }
         }
