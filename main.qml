@@ -41,43 +41,36 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
-import Hue 0.1
-import "tesla"
-import "hue"
+import LauncherClient 0.1
 
 ApplicationWindow {
     visible: true
-    width: 768
-    height: 1280
+    width: 1080
+    height: 1920
 
-    Lights {
-        id: lightsModel
-    }
-    Groups {
-        id: groups
-    }
     LauncherClient {
         id: launcherClient
     }
 
     Image {
+        id: background
         anchors.fill: parent
         source: "images/background2.jpg"
     }
 
-    Button {
-        id: lights
-        width: parent.width; height: 860;
-        onClicked: {
-            launcherClient.launchApp("com.philips.lighting.hue")
-            //groups.get(0).on = !groups.get(0).on
-        }
+    TimeAndDateBar {
+        id: timeAndDateBar
+        width: parent.width; height: 200;
     }
 
+    LightControl {
+        id: lights
+        width: parent.width; height: 1200;
+        anchors.top: timeAndDateBar.bottom
+    }
     TeslaStatusBar {
         height: 400; width: parent.width;
         anchors.top: lights.bottom
-
-        startTeslaAppToggle.onCheckedChanged: launcherClient.launchApp("com.teslamotors.tesla")
+        startTeslaAppToggle.onToggled: launcherClient.launchApp("com.teslamotors.tesla")
     }
 }

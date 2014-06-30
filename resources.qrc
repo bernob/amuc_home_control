@@ -62,5 +62,10 @@
         <file>QUItBatteryComponent/QUItBattery.qml</file>
         <file>Slider.qml</file>
         <file>ToggleButton.qml</file>
+        <file>TimeAndDateBar.qml</file>
+        <file>images/hal_9000_off.png</file>
+        <file>images/hal_9000_on.png</file>
+        <file>Hal9000Button.qml</file>
+        <file>LightControl.qml</file>
     </qresource>
 </RCC>

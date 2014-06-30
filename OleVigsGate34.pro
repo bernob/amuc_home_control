@@ -25,6 +25,9 @@ OTHER_FILES += \
     ToggleButton.qml \
     android-sources/AndroidManifest.xml \
     android-sources/src/org/amuc/olevigs/launcher/LauncherClient.java \
+    TimeAndDateBar.qml \
+    LightControl.qml \
+    Hal9000Button.qml
 
 
 RESOURCES += \

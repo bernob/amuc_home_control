@@ -65,8 +65,6 @@ int HueBridgeConnection::get(const QString &path, QObject *sender, const QString
     CallbackObject co(sender, slot);
     m_requestSenderMap.insert(m_requestCounter, co);
 
-    qDebug() << "getting" << url;
-
     return m_requestCounter++;
 }
 
@@ -144,8 +142,6 @@ void HueBridgeConnection::slotOpFinished()
     QByteArray response = reply->readAll();
     int id = m_requestIdMap.take(reply);
     CallbackObject co = m_requestSenderMap.take(id);
-
-    qDebug() << "slotOpFinished: " << response;
 
     QJsonParseError error;
     QJsonDocument jsonDoc = QJsonDocument::fromJson(response, &error);

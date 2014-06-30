@@ -15,12 +15,12 @@ Item {
 
         QUItBattery {
             id: battery
-            anchors.top: parent.top
-            anchors.topMargin: 0
+//            anchors.top: parent.top
+//            anchors.topMargin: 0
             anchors.horizontalCenter: parent.horizontalCenter
-            value: slider.value
+            value: 0.63
             charging: chargingToggle.checked
-            maxLiquidRotation: liquidToggle.checked ? 50 : 0
+            maxLiquidRotation: 0//liquidToggle.checked ? 50 : 0
             rotation: 0//-90
 //            SequentialAnimation on rotation {
 //                running: rotateToggle.checked
@@ -32,7 +32,6 @@ Item {
 
         Row {
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
             anchors.bottomMargin: 24
             spacing: 16
             ToggleButton {
@@ -50,12 +49,9 @@ Item {
             ToggleButton {
                 id: startTeslaAppToggle
                 icon: "images/teslalogo.png"
+                onToggled: checked = false;
             }
         }
 
-    }
-    MouseArea {
-        id: clickableArea
-        anchors.fill: parent
     }
 }
