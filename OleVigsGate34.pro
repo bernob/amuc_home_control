@@ -1,4 +1,4 @@
-QT += qml quick androidextras
+QT += qml quick androidextras sensors multimedia
 TARGET = touch
 !android: !ios: !blackberry: qtHaveModule(widgets): QT += widgets
 

@@ -24,6 +24,7 @@ Item {
         width: 600
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: hal9000Button.bottom
+        anchors.topMargin: 30
         minimum: 0
         maximum: 255
         onValueChanged: {

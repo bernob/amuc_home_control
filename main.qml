@@ -42,6 +42,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 import LauncherClient 0.1
+import "tesla"
 
 ApplicationWindow {
     visible: true
@@ -65,12 +66,21 @@ ApplicationWindow {
 
     LightControl {
         id: lights
-        width: parent.width; height: 1200;
+        width: parent.width; height: 900;
         anchors.top: timeAndDateBar.bottom
     }
+
+    Tesla {
+        id: tesla
+        height: 360
+        anchors.top: lights.bottom
+        anchors.left: lights.left
+        anchors.leftMargin: 120
+    }
+
     TeslaStatusBar {
         height: 400; width: parent.width;
-        anchors.top: lights.bottom
+        anchors.top: tesla.bottom
         startTeslaAppToggle.onToggled: launcherClient.launchApp("com.teslamotors.tesla")
     }
 }

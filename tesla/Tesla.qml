@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import "Car.js" as TeslaAPI
 
-Rectangle {
+Item {
     width: parent.width
     height: parent.height
     property int _id: 13598
@@ -25,15 +25,9 @@ Rectangle {
     property bool nav_clim_is_on: false
     property int temperature: 0
 
-
-    color: "black"
-    border.color: "gray"
-    border.width: 2
     antialiasing: true
-    clip: true
 
-
-    Rectangle {
+    Item {
         id: teslaContainer
         scale: 1.33
 
@@ -57,7 +51,7 @@ Rectangle {
 //            source: "qrc:///images/car/bg_car.png"
 //        }
 
-        Rectangle {
+        Item {
             id: car
             height: 270
             anchors.top: parent.top
@@ -265,115 +259,6 @@ Rectangle {
                 anchors.topMargin: -20
                 scale: 0.35
                 source: "qrc:///images/car/climate_car_hot.png"
-            }
-        }
-        Rectangle {
-            id: lock
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 10
-            anchors.leftMargin: 10
-
-            Image {
-                id: locked
-                visible: is_locked
-                scale: 0.6
-                source: "qrc:///images/car/lock_lock.png"
-            }
-            Image {
-                id: unlocked
-                visible: !is_locked
-                scale: 0.6
-                source: "qrc:///images/car/lock_unlock.png"
-            }
-        }
-        Rectangle {
-            id: chargeBar
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 300
-            anchors.leftMargin: 40
-
-            Image {
-                id: chargeBarContainer
-                scale: 0.4
-                source: "qrc:///images/car/battery_empty.png"
-                Image {
-                    id: chargeBarFilled
-                    anchors.left: chargeBarContainer.left
-                    horizontalAlignment: Image.AlignLeft
-                    width: (chargeBarContainer.width/100.0)*batteryLevel
-                    clip:true
-                    source: "qrc:///images/car/battery_filled.png"
-                }
-            }
-
-            Text {
-                id: chargeBarText
-                anchors.top: chargeBarContainer.top
-                anchors.left: chargeBarContainer.left
-                anchors.topMargin: 30
-                anchors.leftMargin: 300
-                color: "white"
-                font.pixelSize: 26
-                text: batteryLevel + "%"
-            }
-        }
-        Text {
-            id: responseText
-            width: 1024
-            height: 100
-            anchors.top: car.bottom
-            anchors.left: car.left
-            text: response
-            wrapMode: Text.Wrap
-        }
-        Text {
-            id: chargingStateText
-            width: 1024
-            height: 30
-            anchors.top: responseText.bottom
-            anchors.left: responseText.left
-            text: "Charging state: " + chargingState
-        }
-        Rectangle {
-            id: temperatureContainer
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 10
-            anchors.leftMargin: 590
-
-            Image {
-                id: nav_clim_on
-                visible: nav_clim_is_on
-                scale: 0.6
-                source: "qrc:///images/car/nav_clim_on.png"
-            }
-            Image {
-                id: nav_clim_off
-                visible: !nav_clim_is_on
-                scale: 0.6
-                source: "qrc:///images/car/nav_clim_off.png"
-            }
-
-            MouseArea {
-                anchors.fill: nav_clim_off
-                onClicked: {
-                    if(nav_clim_is_on)
-                        nav_clim_is_on = false
-                    else nav_clim_is_on = true
-                }
-            }
-
-            Text {
-                id: temperatureText
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: 95
-                anchors.topMargin: 17
-                color: "white"
-                font.pixelSize: 26
-                text: temperature + "C"
             }
         }
     }

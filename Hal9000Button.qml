@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtMultimedia 5.3
 
 Item {
     id: root
@@ -41,10 +42,16 @@ Item {
         anchors.centerIn: parent
     }
 
+    SoundEffect {
+        id: playMoment
+        source: "sounds/moment.wav"
+    }
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
             checked = !checked
+            playMoment.play()
             root.toggled();
         }
     }

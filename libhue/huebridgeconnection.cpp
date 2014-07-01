@@ -123,8 +123,6 @@ int HueBridgeConnection::put(const QString &path, const QVariantMap &params, QOb
     QJsonDocument jsonDoc = QJsonDocument::fromVariant(params);
     QByteArray data = jsonDoc.toJson();
 
-    qDebug() << "putting" << url << data;
-
     QNetworkReply *reply = m_nam->put(request, data);
     connect(reply, SIGNAL(finished()), this, SLOT(slotOpFinished()));
     m_requestIdMap.insert(reply, m_requestCounter);

@@ -67,5 +67,6 @@
         <file>images/hal_9000_on.png</file>
         <file>Hal9000Button.qml</file>
         <file>LightControl.qml</file>
+        <file>sounds/moment.wav</file>
     </qresource>
 </RCC>
