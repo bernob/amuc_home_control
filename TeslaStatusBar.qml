@@ -15,19 +15,11 @@ Item {
 
         QUItBattery {
             id: battery
-//            anchors.top: parent.top
-//            anchors.topMargin: 0
             anchors.horizontalCenter: parent.horizontalCenter
             value: 0.63
             charging: chargingToggle.checked
-            maxLiquidRotation: 0//liquidToggle.checked ? 50 : 0
-            rotation: 0//-90
-//            SequentialAnimation on rotation {
-//                running: rotateToggle.checked
-//                loops: Animation.Infinite
-//                NumberAnimation { to: -120; duration: 2000; easing.type: Easing.InOutQuad }
-//                NumberAnimation { to: -70; duration: 1000; easing.type: Easing.InOutQuad }
-//            }
+            maxLiquidRotation: 0
+            rotation: 0
         }
 
         Row {
@@ -39,12 +31,12 @@ Item {
                 icon: "images/plug.png"
             }
             ToggleButton {
-                id: glassToggle
-                icon: "images/glass.png"
+                id: lockedToggle
+                icon: checked ? "images/locked.png" : "images/ulocked.png"
             }
             ToggleButton {
                 id: preheatToggle
-                icon: "images/rotate.png"
+                icon: "images/fan.png"
             }
             ToggleButton {
                 id: startTeslaAppToggle

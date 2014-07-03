@@ -1,5 +1,4 @@
 import QtQuick 2.1
-import QtSensors 5.3
 
 Item {
     width: parent.width
@@ -8,22 +7,18 @@ Item {
     Text {
         id: timeAndDate
         anchors.centerIn: parent
-        font.bold: true
-        font.pixelSize: 92
         color: "white"
+        font.bold: true
+        font.pixelSize: 108
         antialiasing: true
     }
 
-    LightSensor {
-        id: lightSensor
-        alwaysOn: true
-    }
 
     Timer {
         interval: 1000; running: true; repeat: true
+        property int previousLux: 0
         onTriggered: {
-
-            timeAndDate.text = Qt.formatDateTime(new Date(), "dd. MMMM hh:mm:ss") + " LL: " + lightSensor.reading.value
+            timeAndDate.text = Qt.formatDateTime(new Date(), "dd. MMMM hh:mm:ss")
         }
     }
 

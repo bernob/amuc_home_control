@@ -68,5 +68,8 @@
         <file>Hal9000Button.qml</file>
         <file>LightControl.qml</file>
         <file>sounds/moment.wav</file>
+        <file>images/locked.png</file>
+        <file>images/fan.png</file>
+        <file>images/ulocked.png</file>
     </qresource>
 </RCC>

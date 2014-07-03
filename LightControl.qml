@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtSensors 5.3
 import Hue 0.1
 
 Item {
@@ -15,7 +16,7 @@ Item {
         id: hal9000Button
         anchors.centerIn: parent
         onToggled: {
-            groups.get(1).on = !groups.get(1).on
+            if(groups.count > 0) groups.get(1).on = !groups.get(1).on
         }
     }
 
@@ -93,6 +94,28 @@ Item {
             }
         }
     }
+
+//    LightSensor {
+//        id: lightSensor
+//        active: true
+//        alwaysOn: true
+//    }
+
+//    Timer {
+//        running: true
+//        repeat: true
+//        interval: 1000
+//        property int previousLux: 0
+
+//        onTriggered:  {
+//            if((previousLux < 150) && (lightSensor.reading.illuminance < 150)) {
+//                if(!groups.get(1).on)
+//                    groups.get(1).on = true
+//            }
+//            previousLux = lightSensor.reading.illuminance
+//        }
+//    }
+
 
     Timer {
         running: true

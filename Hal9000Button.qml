@@ -42,16 +42,16 @@ Item {
         anchors.centerIn: parent
     }
 
-    SoundEffect {
-        id: playMoment
-        source: "sounds/moment.wav"
-    }
+//    SoundEffect {
+//        id: playMoment
+//        source: "sounds/moment.wav"
+//    }
 
     MouseArea {
         anchors.fill: parent
         onClicked: {
             checked = !checked
-            playMoment.play()
+            //playMoment.play()
             root.toggled();
         }
     }
