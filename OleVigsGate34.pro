@@ -1,8 +1,10 @@
-QT += qml quick androidextras sensors multimedia
+QT += qml quick multimedia
+android: QT += androidextras sensors
 TARGET = touch
 !android: !ios: !blackberry: qtHaveModule(widgets): QT += widgets
 
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
+android: ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
+android: OTHER_FILES += android-sources/AndroidManifest.xml android-sources/src/org/amuc/olevigs/launcher/LauncherClient.java
 
 include(src/src.pri)
 include(libhue/libhue.pri)
@@ -23,8 +25,6 @@ OTHER_FILES += \
     QUItBatteryComponent/QUItBattery.qml \
     Slider.qml \
     ToggleButton.qml \
-    android-sources/AndroidManifest.xml \
-    android-sources/src/org/amuc/olevigs/launcher/LauncherClient.java \
     TimeAndDateBar.qml \
     LightControl.qml \
     Hal9000Button.qml

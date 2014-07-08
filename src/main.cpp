@@ -50,7 +50,10 @@
 #include "../libhue/groups.h"
 #include "../libhue/group.h"
 #include "../libhue/lightsfiltermodel.h"
-#include "launcherclient.h"
+
+#ifdef __ANDROID_API__
+    #include "launcherclient.h"
+#endif
 
 static QObject* hueBridgeInstance(QQmlEngine* /* engine */, QJSEngine* /* scriptEngine */)
 {
@@ -77,11 +80,12 @@ int main(int argc, char *argv[])
     //FIXME: eventually creatable
     qmlRegisterUncreatableType<Group>(uri, 0, 1, "Group", "Cannot create groups. Get them from the Groups model.");
     qmlRegisterType<LightsFilterModel>(uri, 0, 1, "LightsFilterModel");
+#ifdef __ANDROID_API__
     qmlRegisterType<LauncherClient>("LauncherClient", 0, 1, "LauncherClient");
-
-    //QQmlApplicationEngine engine(QUrl("qrc:/hue/Shine.qml"));
     QQmlApplicationEngine engine(QUrl("qrc:/main.qml"));
-
+#else
+    QQmlApplicationEngine engine(QUrl("qrc:/hue/Shine.qml"));
+#endif
 
     return app.exec();
 }

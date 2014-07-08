@@ -68,9 +68,9 @@ ApplicationWindow {
         }
     }
 
-    Lights {
-        id: lightsModel
-    }
+//    Lights {
+//        id: lightsModel
+//    }
 
     TabView {
         id: tabView
@@ -78,7 +78,7 @@ ApplicationWindow {
 
         LightsTab {
             title: "Lights"
-            lights: lightsModel
+            lights: Lights
         }
 
         GroupsTab {

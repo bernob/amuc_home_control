@@ -111,6 +111,7 @@ int HueBridgeConnection::post(const QString &path, const QVariantMap &params, QO
 
 int HueBridgeConnection::put(const QString &path, const QVariantMap &params, QObject *sender, const QString &slot)
 {
+    qDebug() << "put starting";
     if (m_baseApiUrl.isEmpty()) {
         qWarning() << "Not authenticated to bridge, cannot put" << path;
         return -1;
@@ -122,18 +123,25 @@ int HueBridgeConnection::put(const QString &path, const QVariantMap &params, QOb
 
     QJsonDocument jsonDoc = QJsonDocument::fromVariant(params);
     QByteArray data = jsonDoc.toJson();
+    qDebug() << "json serialized";
 
     QNetworkReply *reply = m_nam->put(request, data);
     connect(reply, SIGNAL(finished()), this, SLOT(slotOpFinished()));
+    qDebug() << "request put";
+
     m_requestIdMap.insert(reply, m_requestCounter);
     m_writeOperationList.append(reply);
     CallbackObject co(sender, slot);
+    qDebug() << "schedueled callback";
     m_requestSenderMap.insert(m_requestCounter, co);
+
     return m_requestCounter++;
+    qDebug() << "put ended";
 }
 
 void HueBridgeConnection::slotOpFinished()
 {
+//    qDebug() << "slotOpFinished starting";
     QNetworkReply *reply = static_cast<QNetworkReply*>(sender());
     reply->deleteLater();
 
@@ -157,5 +165,6 @@ void HueBridgeConnection::slotOpFinished()
     if (!co.sender().isNull()) {
         QMetaObject::invokeMethod(co.sender(), co.slot().toLatin1().data(), Q_ARG(int, id), Q_ARG(QVariant, rsp));
     }
+//    qDebug() << "slotOpFinished ended";
 }
 

@@ -69,6 +69,20 @@ ApplicationWindow {
         width: parent.width; height: 900;
         anchors.top: timeAndDateBar.bottom
     }
+//    Item {
+//        id: lights
+//        width: parent.width; height: 900;
+//        Image {
+//            id: green
+//            anchors.centerIn: parent
+//            source: "images/zonebutton.png"
+//        }
+//        Image {
+//            id: red
+//            anchors.centerIn: parent
+//            source: "images/gradientblack.png"
+//        }
+//    }
 
     Tesla {
         id: tesla

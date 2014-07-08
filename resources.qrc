@@ -71,5 +71,11 @@
         <file>images/locked.png</file>
         <file>images/fan.png</file>
         <file>images/ulocked.png</file>
+        <file>ZoneWheel.qml</file>
+        <file>images/butttonknobgreen.png</file>
+        <file>images/butttonknobred.png</file>
+        <file>images/gradientblack.png</file>
+        <file>images/gradientgreen.png</file>
+        <file>images/zonebutton.png</file>
     </qresource>
 </RCC>

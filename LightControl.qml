@@ -3,7 +3,7 @@ import QtSensors 5.3
 import Hue 0.1
 
 Item {
-    property int groupId: livingRoom.checked ? 1 : diningTable.checked ? 2 : library.checked ? 3 : tv.checked ? 4 : 0
+    property int groupId: livingRoom.checked ? 1 : library.checked ? 2 : diningTable.checked ? 3 : tv.checked ? 4 : 0
     onGroupIdChanged: if(groupId != 0) brightnessSlider.value = groups.get(groupId).bri
 
     width: parent.width; height: parent.height;
@@ -16,7 +16,7 @@ Item {
         id: hal9000Button
         anchors.centerIn: parent
         onToggled: {
-            if(groups.count > 0) groups.get(1).on = !groups.get(1).on
+            if(groups.get(1)) groups.get(1).on = !groups.get(1).on
         }
     }
 
@@ -29,8 +29,10 @@ Item {
         minimum: 0
         maximum: 255
         onValueChanged: {
-            groups.get(groupId).bri = value
-            hal9000Button.halIsAlive.start()
+            if(groups.get(groupId)) {
+                groups.get(groupId).bri = value
+                hal9000Button.halIsAlive.start()
+            }
         }
     }
 
@@ -44,9 +46,12 @@ Item {
             icon: "images/plug.png"
             onCheckedChanged: {
                 if(checked) {
-                    diningTable.checked = false
-                    library.checked = false
-                    tv.checked = false
+                    if(groups.get(groupId)) {
+                        brightnessSlider.value = groups.get(groupId).bri
+                        diningTable.checked = false
+                        library.checked = false
+                        tv.checked = false
+                    }
                 }
             }
         }
@@ -55,9 +60,12 @@ Item {
             icon: "images/glass.png"
             onCheckedChanged: {
                 if(checked) {
-                    livingRoom.checked = false
-                    library.checked = false
-                    tv.checked = false
+                    if(groups.get(groupId)) {
+                        brightnessSlider.value = groups.get(groupId).bri
+                        livingRoom.checked = false
+                        library.checked = false
+                        tv.checked = false
+                    }
                 }
             }
         }
@@ -66,9 +74,12 @@ Item {
             icon: "images/rotate.png"
             onCheckedChanged: {
                 if(checked) {
-                    livingRoom.checked = false
-                    diningTable.checked = false
-                    tv.checked = false
+                    if(groups.get(groupId)) {
+                        brightnessSlider.value = groups.get(groupId).bri
+                        livingRoom.checked = false
+                        diningTable.checked = false
+                        tv.checked = false
+                    }
                 }
             }
         }
@@ -77,9 +88,12 @@ Item {
             icon: "images/teslalogo.png"
             onCheckedChanged: {
                 if(checked) {
-                    livingRoom.checked = false
-                    diningTable.checked = false
-                    library.checked = false
+                    if(groups.get(groupId)) {
+                        brightnessSlider.value = groups.get(groupId).bri
+                        livingRoom.checked = false
+                        diningTable.checked = false
+                        library.checked = false
+                    }
                 }
             }
         }

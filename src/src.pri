@@ -1,6 +1,6 @@
-SOURCES += \
-    $$PWD/main.cpp \
-    src/launcherclient.cpp
+android: SOURCES += src/launcherclient.cpp
+android: HEADERS += src/launcherclient.h
 
-HEADERS += \
-    src/launcherclient.h
+SOURCES += $$PWD/main.cpp
+
+
