@@ -7,22 +7,22 @@ ListModel {
         normalsIcon: "images/teslachromen.png"
     }
     ListElement {
-        name: "Tesla"
+        name: "Stue"
         sourceIcon: "images/teslachrome.png"
         normalsIcon: "images/teslachromen.png"
     }
     ListElement {
-        name: "Tesla"
+        name: "Spisestue"
         sourceIcon: "images/teslachrome.png"
         normalsIcon: "images/teslachromen.png"
     }
     ListElement {
-        name: "Tesla"
+        name: "Bibliotek"
         sourceIcon: "images/teslachrome.png"
         normalsIcon: "images/teslachromen.png"
     }
     ListElement {
-        name: "Tesla"
+        name: "TV"
         sourceIcon: "images/teslachrome.png"
         normalsIcon: "images/teslachromen.png"
     }

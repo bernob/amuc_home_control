@@ -115,5 +115,6 @@
         <file>IconCarousel.qml</file>
         <file>Carousel/images/redbrickwall.jpg</file>
         <file>Carousel/images/redbrickwalln.jpg</file>
+        <file>TeslaComponent.qml</file>
     </qresource>
 </RCC>

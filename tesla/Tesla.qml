@@ -2,8 +2,8 @@ import QtQuick 2.1
 import "Car.js" as TeslaAPI
 
 Item {
-    width: parent.width
-    height: parent.height
+    width: 750
+    height: 300//285
     property int _id: 13598
     property string chargingState
     property int batteryLevel

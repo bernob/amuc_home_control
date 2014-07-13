@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import QtQuick.Particles 2.0
 
 Item {
@@ -54,13 +54,13 @@ Item {
         Emitter {
             width: 8
             height: parent.height
-            x: 20
+            x: 10
             emitRate: root.charging ? 20 + 50*root.value : 2 + 5*root.value
             lifeSpan: 3500
-            size: 32
-            sizeVariation: 24
+            size: 16
+            sizeVariation: 12
             velocity: PointDirection{ x: 5+100*root.value; xVariation: x*0.5; yVariation: 6 }
-            endSize: 8
+            endSize: 4
 
         }
         Turbulence {
@@ -115,7 +115,7 @@ Item {
         Image {
             id: levelImage
             source: "images/bar_level2.png"
-            x: shaderEffectItem.value * root.width + (Math.abs(-root.__bRotation)*(shaderEffectItem.value-0.5)*2.9) - 75
+            x: shaderEffectItem.value * root.width + (Math.abs(-root.__bRotation)*(shaderEffectItem.value-0.5)*2.9) - 55
             visible: false
         }
 
@@ -170,17 +170,17 @@ Item {
             emitRate: 100
             lifeSpan: 1400
             lifeSpanVariation: 500
-            size: 32
-            sizeVariation: 16
-            velocity: PointDirection{ x: 200; xVariation: x*0.5; yVariation: 30 }
-            endSize: 8
+            size: 16
+            sizeVariation: 8
+            velocity: PointDirection{ x: 100; xVariation: x*0.5; yVariation: 15 }
+            endSize: 4
             enabled: root.charging
         }
         GroupGoal {
             groups: ["first"]
             x: shaderEffectItem.value * parent.width
             height: parent.height
-            width: 100
+            width: 50
             goalState: "second"
             jump: true
         }
@@ -194,7 +194,7 @@ Item {
     Text {
         anchors.verticalCenter: parent.verticalCenter
         x: 60
-        font.pixelSize: 26
+        font.pixelSize: 13
         color: "#404040"
         style: Text.Outline
         styleColor: "#ffffff"
@@ -213,7 +213,7 @@ Item {
     Text {
         anchors.centerIn: parent
         y: 22
-        font.pixelSize: 48
+        font.pixelSize: 24
         style: Text.Outline
         color: root.__batteryLow && !root.charging ? "#802020" : "#404040"
         styleColor: "#ffffff"

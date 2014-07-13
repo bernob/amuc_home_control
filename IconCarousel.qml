@@ -3,7 +3,6 @@ import "Carousel"
 
 Item {
     id: root
-
     //Spotlight direction animation
     QtObject {
         id: settings
@@ -24,7 +23,7 @@ Item {
     NMapLightSource {
         id: lightSourceItem
         z: 10
-        lightPosX: mainView.width * 0.5
+        lightPosX: root.width * 0.5
         lightPosY: root.height * 0.5 - settings.spotAnimationPosition * 5
         lightIntensity: 0.5
     }
@@ -42,31 +41,28 @@ Item {
             }
         }
         path: Path {
-            startX: mainView.width*0.5; startY: root.height*0.38
+            startX: root.width*0.5; startY: root.height*0.6
             PathAttribute { name: "iconScale"; value: 1.4 }
             PathAttribute { name: "iconZ"; value: 100.0 }
             PathAttribute { name: "iconFog"; value: 0.0 }
-            PathQuad { x: mainView.width*0.5; y: root.height*0.2; controlX: mainView.width*1.1; controlY: root.height*0.2 }
+            PathQuad { x: root.width*0.5; y: root.height*0.3; controlX: root.width*1.1; controlY: root.height*0.3 }
             PathAttribute { name: "iconScale"; value: 0.8 }
             PathAttribute { name: "iconZ"; value: 1.0 }
             PathAttribute { name: "iconFog"; value: 0.5 }
-            PathQuad { x: mainView.width*0.5; y: root.height*0.38; controlX: -mainView.width*0.1; controlY: root.height*0.2 }
+            PathQuad { x: root.width*0.5; y: root.height*0.6; controlX: -root.width*0.1; controlY: root.height*0.3 }
         }
     }
 
     Text {
         id: nameTextItem
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -80
         anchors.bottom: parent.bottom
         anchors.bottomMargin: parent.height * 0.15
         font.pixelSize: 68
         color: "#d0d0d0"
         style: Text.Outline
-        styleColor: "#404040"
-        visible: false
-    }
-
-    FpsItem {
-        id: fpsItem
+        styleColor: "#f0f0f0"
+        visible: true
     }
 }
