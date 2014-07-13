@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<LauncherClient>("LauncherClient", 0, 1, "LauncherClient");
     QQmlApplicationEngine engine(QUrl("qrc:/main.qml"));
 #else
-    QQmlApplicationEngine engine(QUrl("qrc:/hue/Shine.qml"));
+    QQmlApplicationEngine engine(QUrl("qrc:/main.qml"));//"qrc:/hue/Shine.qml"));
 #endif
 
     return app.exec();

@@ -77,5 +77,43 @@
         <file>images/gradientblack.png</file>
         <file>images/gradientgreen.png</file>
         <file>images/zonebutton.png</file>
+        <file>Carousel/ContentModel.qml</file>
+        <file>Carousel/FpsItem.qml</file>
+        <file>Carousel/ListItem.qml</file>
+        <file>Carousel/NMapEffect.qml</file>
+        <file>Carousel/NMapLightSource.qml</file>
+        <file>Carousel/images/1.png</file>
+        <file>Carousel/images/1n.png</file>
+        <file>Carousel/images/1s.png</file>
+        <file>Carousel/images/2.png</file>
+        <file>Carousel/images/2n.png</file>
+        <file>Carousel/images/2s.png</file>
+        <file>Carousel/images/3.png</file>
+        <file>Carousel/images/3n.png</file>
+        <file>Carousel/images/3s.png</file>
+        <file>Carousel/images/8.png</file>
+        <file>Carousel/images/8n.png</file>
+        <file>Carousel/images/8s.png</file>
+        <file>Carousel/images/9.png</file>
+        <file>Carousel/images/9n.png</file>
+        <file>Carousel/images/9s.png</file>
+        <file>Carousel/images/10.png</file>
+        <file>Carousel/images/10n.png</file>
+        <file>Carousel/images/10s.png</file>
+        <file>Carousel/images/13.png</file>
+        <file>Carousel/images/13n.png</file>
+        <file>Carousel/images/13s.png</file>
+        <file>Carousel/images/15.png</file>
+        <file>Carousel/images/15n.png</file>
+        <file>Carousel/images/15s.png</file>
+        <file>Carousel/images/arrow-right.png</file>
+        <file>Carousel/images/background_lab.png</file>
+        <file>Carousel/images/spinner.png</file>
+        <file>Carousel/images/spot.png</file>
+        <file>Carousel/images/teslachrome.png</file>
+        <file>Carousel/images/teslachromen.png</file>
+        <file>IconCarousel.qml</file>
+        <file>Carousel/images/redbrickwall.jpg</file>
+        <file>Carousel/images/redbrickwalln.jpg</file>
     </qresource>
 </RCC>

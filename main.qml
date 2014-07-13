@@ -41,34 +41,36 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
-import LauncherClient 0.1
+//import LauncherClient 0.1
 import "tesla"
 
 ApplicationWindow {
+    id: mainView
     visible: true
     width: 1080
-    height: 1920
+    height: 1240 //1280
+    color: "#000000"
 
-    LauncherClient {
-        id: launcherClient
-    }
+//    LauncherClient {
+//        id: launcherClient
+//    }
 
-    Image {
-        id: background
-        anchors.fill: parent
-        source: "images/background2.jpg"
-    }
+//    Image {
+//        id: background
+//        anchors.fill: parent
+//        source: "images/background2.jpg"
+//    }
 
-    TimeAndDateBar {
-        id: timeAndDateBar
-        width: parent.width; height: 200;
-    }
+//    TimeAndDateBar {
+//        id: timeAndDateBar
+//        width: parent.width; height: 200;
+//    }
 
-    LightControl {
-        id: lights
-        width: parent.width; height: 900;
-        anchors.top: timeAndDateBar.bottom
-    }
+//    LightControl {
+//        id: lights
+//        width: parent.width; height: 900;
+//        anchors.top: timeAndDateBar.bottom
+//    }
 //    Item {
 //        id: lights
 //        width: parent.width; height: 900;
@@ -83,18 +85,25 @@ ApplicationWindow {
 //            source: "images/gradientblack.png"
 //        }
 //    }
+    IconCarousel {
+        id: lights
+        width: parent.width; height: 380;
+        anchors.top: timeAndDateBar.bottom
+    }
 
     Tesla {
         id: tesla
-        height: 360
+        height: 260
         anchors.top: lights.bottom
         anchors.left: lights.left
         anchors.leftMargin: 120
     }
 
     TeslaStatusBar {
-        height: 400; width: parent.width;
+        id: teslaStatusBar
+        height: 500; width: parent.width;
         anchors.top: tesla.bottom
         startTeslaAppToggle.onToggled: launcherClient.launchApp("com.teslamotors.tesla")
     }
+
 }

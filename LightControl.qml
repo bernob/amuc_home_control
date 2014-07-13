@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import QtSensors 5.3
 import Hue 0.1
 

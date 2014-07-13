@@ -27,7 +27,13 @@ OTHER_FILES += \
     ToggleButton.qml \
     TimeAndDateBar.qml \
     LightControl.qml \
-    Hal9000Button.qml
+    Hal9000Button.qml \
+    IconCarousel.qml \
+    Carousel/ContentModel.qml \
+    Carousel/FpsItem.qml \
+    Carousel/ListItem.qml \
+    Carousel/NMapEffect.qml \
+    Carousel/NMapLightSource.qml
 
 
 RESOURCES += \

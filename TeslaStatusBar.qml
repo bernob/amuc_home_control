@@ -21,10 +21,28 @@ Item {
             maxLiquidRotation: 0
             rotation: 0
         }
+        // Add mirror effect
+        ShaderEffect {
+            property variant source: ShaderEffectSource { sourceItem: battery; hideSource: false }
 
+            anchors.top: battery.bottom
+            width: battery.width
+            height: battery.height
+
+            fragmentShader: "
+                varying highp vec2 qt_TexCoord0;
+                uniform highp float qt_Opacity;
+                uniform sampler2D source;
+                void main(void) {
+                    highp vec2 pos = vec2(qt_TexCoord0.x, (1.0 - qt_TexCoord0.y*0.8));
+                    pos.x += (qt_TexCoord0.y*0.2) * (pos.x * -1.0 + 1.0);
+                    highp vec4 pix = texture2D(source, pos);
+                    pix *= (0.4 - qt_TexCoord0.y*0.5) * min(qt_TexCoord0.y*5.0, 1.0);
+                    gl_FragColor = pix * qt_Opacity;
+                }"
+        }
         Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: 24
+            anchors.centerIn: parent
             spacing: 16
             ToggleButton {
                 id: chargingToggle
