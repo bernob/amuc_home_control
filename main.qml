@@ -47,8 +47,8 @@ import "Carousel"
 ApplicationWindow {
     id: mainView
     visible: true
-    width: 1080
-    height: 1920
+    width: 1280
+    height: 1920 //1200
     color: "#000000"
 
 //    LauncherClient {
@@ -61,10 +61,10 @@ ApplicationWindow {
 //        source: "images/background2.jpg"
 //    }
 
-    TimeAndDateBar {
-        id: timeAndDateBar
-        width: parent.width; height: 200;
-    }
+//    TimeAndDateBar {
+//        id: timeAndDateBar
+//        width: parent.width; height: 200;
+//    }
 
 //    LightControl {
 //        id: lights
@@ -87,18 +87,17 @@ ApplicationWindow {
 //    }
     IconCarousel {
         id: lights
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.horizontalCenterOffset: 100
-        width: 600; height: 350;
-        anchors.top: timeAndDateBar.bottom
+        width: parent.width
+        height: 640
+        //anchors.top: parent.top
+        //anchors.topMargin: 50
+        //anchors.top: timeAndDateBar.bottom
     }
 
     TeslaComponent {
         id: teslaComponent
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: parent.width
-        height: 750
     }
 
     FpsItem {

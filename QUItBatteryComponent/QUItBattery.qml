@@ -21,12 +21,12 @@ Item {
     width: batteryImage.width
     height: batteryImage.height
 
-    Behavior on __smoothedValue {
-        SmoothedAnimation {
-            velocity: 0.1
-            duration: 1200
-        }
-    }
+//    Behavior on __smoothedValue {
+//        SmoothedAnimation {
+//            velocity: 0.1
+//            duration: 1200
+//        }
+//    }
     Behavior on __bRotation {
         SmoothedAnimation {
             velocity: 3.0

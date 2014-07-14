@@ -116,5 +116,20 @@
         <file>Carousel/images/redbrickwall.jpg</file>
         <file>Carousel/images/redbrickwalln.jpg</file>
         <file>TeslaComponent.qml</file>
+        <file>Carousel/images/tv.png</file>
+        <file>Carousel/images/tvn.png</file>
+        <file>Carousel/images/diningtable.png</file>
+        <file>Carousel/images/diningtablen.png</file>
+        <file>Carousel/images/bookcase.png</file>
+        <file>Carousel/images/bookcasen.png</file>
+        <file>GradientWheel.qml</file>
+        <file>images/gradientwheel.png</file>
+        <file>images/gradient_wheel_brightness_circle.png</file>
+        <file>images/gradient_wheel_color_circle.png</file>
+        <file>images/gradient_wheel_inner_circle.png</file>
+        <file>images/gradient_wheel_middle_surface.png</file>
+        <file>images/gradient_wheel_outer_circle.png</file>
+        <file>Carousel/images/gradient_wheel_n.png</file>
+        <file>Carousel/images/gradient_wheel.png</file>
     </qresource>
 </RCC>

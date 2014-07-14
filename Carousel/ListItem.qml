@@ -24,9 +24,14 @@ Item {
         scale: 1.2 - (fogAmount*0.4)
     }
 
+    Image {
+        id:sourceIcon
+        source: model.sourceIcon
+    }
+
     NMapEffect {
         id: nmapItem
-        sourceImage: model.sourceIcon
+        sourceGraphics: sourceIcon
         normalsImage: model.normalsIcon
         lightSource: lightSourceItem
         switchX: true

@@ -4,6 +4,7 @@ import QtQuick 2.0
 
 ShaderEffect {
     id: root
+    property var sourceGraphics
     // Original image
     property string sourceImage
     // Normal mapped image
@@ -25,23 +26,23 @@ ShaderEffect {
     property color colorizeColor: "#404040"
     property real colorizeAmount: 0.0
     // Sizes of the original pixmap
-    property real originalWidth: sourceImageItem.sourceSize.width
-    property real originalHeight: sourceImageItem.sourceSize.height
+    property real originalWidth: sourceGraphics.sourceSize.width
+    property real originalHeight: sourceGraphics.sourceSize.height
 
     /* Private */
     property real _lightPosX: lightSource.lightPosX / lightSource.width * (lightSource.width/root.width) - elementPositionX/root.width
     property real _lightPosY: lightSource.lightPosY / lightSource.height * (lightSource.height/root.height) - elementPositionY/root.height
-    property variant _source: ShaderEffectSource { sourceItem: sourceImageItem; hideSource: true }
+    property variant _source: ShaderEffectSource { sourceItem: sourceGraphics; hideSource: true }
     property variant _source2: ShaderEffectSource { sourceItem: normalsourceImageItem; hideSource: true }
 
-    width: sourceImageItem.width
-    height: sourceImageItem.height
+    width: sourceGraphics.width
+    height: sourceGraphics.height
 
-    Image {
-        id: sourceImageItem
-        source: sourceImage
-        visible: false
-    }
+//    Image {
+//        id: sourceImageItem
+//        source: sourceImage
+//        visible: false
+//    }
     Image {
         id: normalsourceImageItem
         source: normalsImage

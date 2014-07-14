@@ -4,21 +4,21 @@ import "QUItBatteryComponent"
 
 Item {
     id: teslaComponent
-    anchors.top: lights.bottom
-    anchors.left: lights.left
-    width: parent.width
-    height: 750
+    width: 1280
+    height: 640
 
     Tesla {
         id: tesla
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: -50
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -20
     }
 
     // Add mirror effect to car
     ShaderEffect {
         anchors.top: tesla.bottom
-        anchors.topMargin: -30
+        anchors.topMargin: -38
         anchors.left: tesla.left
         width: tesla.width
         height: tesla.height
@@ -39,24 +39,31 @@ Item {
 
     TeslaStatusBar {
         id: teslaStatusBar
-        height: 500; width: 100;
-        anchors.top: parent.top
-        anchors.topMargin: 10
+        height: 300; width: 50;
+        anchors.bottom: tesla.bottom
+        anchors.bottomMargin: 25
         anchors.left: parent.left
-        anchors.leftMargin: 30
+        anchors.leftMargin: 90
         startTeslaAppToggle.onToggled: launcherClient.launchApp("com.teslamotors.tesla")
     }
 
     QUItBattery {
         id: battery
         anchors.bottom: tesla.bottom
-        anchors.bottomMargin: 175
+        anchors.bottomMargin: 15
         anchors.right: parent.right
-        anchors.rightMargin: -100
-        value: 0.90
+        anchors.rightMargin: -35
+        value: 0.0
         charging: teslaStatusBar.chargingOn
         maxLiquidRotation: 0
         rotation: -90
+
+        SequentialAnimation on value {
+            loops: Animation.Infinite
+            running: teslaStatusBar.chargingOn
+            NumberAnimation { to: 1.0; duration: 200000; easing.type: Easing.Linear; easing.period: 1000 }
+            NumberAnimation { to: 0.0; duration: 5000; easing.type: Easing.Linear }
+        }
     }
 
 

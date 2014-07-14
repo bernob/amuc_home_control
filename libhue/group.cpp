@@ -70,10 +70,12 @@ quint8 Group::bri() const
 {
     quint8 bri = 0;
     foreach (int lightId, m_lightIds) {
-        qDebug() << Lights::instance()->get(lightId)->bri();
-        if (bri > 0 && Lights::instance()->get(lightId)->bri() != bri)
-            return 0;
-        bri = Lights::instance()->get(lightId)->bri();
+       if(Lights::instance()->get(lightId))
+       {
+//        if (bri > 0 && Lights::instance()->get(lightId)->bri() != bri)
+//            return 0;
+        return Lights::instance()->get(lightId)->bri();
+       }
     }
 
     return bri;

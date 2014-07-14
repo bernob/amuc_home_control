@@ -2,28 +2,28 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
-        name: "Tesla"
-        sourceIcon: "images/teslachrome.png"
-        normalsIcon: "images/teslachromen.png"
+        name: "Library"
+        sourceIcon: "images/bookcase.png"
+        normalsIcon: "images/bookcasen.png"
     }
     ListElement {
-        name: "Stue"
-        sourceIcon: "images/teslachrome.png"
-        normalsIcon: "images/teslachromen.png"
+        name: "Living Room"
+        sourceIcon: "images/diningtable.png"
+        normalsIcon: "images/diningtablen.png"
     }
     ListElement {
-        name: "Spisestue"
-        sourceIcon: "images/teslachrome.png"
-        normalsIcon: "images/teslachromen.png"
-    }
-    ListElement {
-        name: "Bibliotek"
-        sourceIcon: "images/teslachrome.png"
-        normalsIcon: "images/teslachromen.png"
+        name: "Dining Table"
+        sourceIcon: "images/diningtable.png"
+        normalsIcon: "images/diningtablen.png"
     }
     ListElement {
         name: "TV"
-        sourceIcon: "images/teslachrome.png"
-        normalsIcon: "images/teslachromen.png"
+        sourceIcon: "images/tv.png"
+        normalsIcon: "images/tvn.png"
+    }
+    ListElement {
+        name: "TV"
+        sourceIcon: "images/tv.png"
+        normalsIcon: "images/tvn.png"
     }
 }

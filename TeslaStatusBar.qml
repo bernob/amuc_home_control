@@ -11,6 +11,7 @@ Item {
         spacing: 16
         ToggleButton {
             id: chargingToggle
+            checked: true
             icon: "images/plug.png"
         }
         ToggleButton {
