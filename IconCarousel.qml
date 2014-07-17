@@ -41,14 +41,22 @@ Item {
     PathView {
         id: pathView
         anchors.fill: parent
+        interactive: false
         visible: true
         model: listModel
         delegate: ListItem {
             onIsSelectedChanged: {
                 if (isSelected) {
                     groupId = model.name === "Living Room" ? 1 : model.name === "Library" ? 2 : model.name === "Dining Table" ? 3 : model.name === "TV" ? 4 : 0
-                    nameTextItem.text = groups.get(groupId).bri + "/255"
+                    nameTextItem.text = model.name
                 }
+            }
+            onBrightnessLevelChanged:
+            {
+              if(groups.get(groupId) && !timer.running) {
+                  groups.get(groupId).bri = brightnessLevel
+                  timer.start()
+              }
             }
         }
         path: Path {
@@ -63,59 +71,19 @@ Item {
             PathQuad { x: root.width*0.5; y: root.height*0.68; controlX: -root.width*0.1; controlY: root.height*0.2 }
         }
     }
-
+    Timer {
+        id: timer
+        interval: 500
+    }
     Text {
         id: nameTextItem
-        anchors.centerIn: pathView
-        anchors.verticalCenterOffset: -50
+        anchors.centerIn: root
+        anchors.verticalCenterOffset: -100
         font.pixelSize: 48
         color: "#d0d0d0"
         style: Text.Outline
         styleColor: "#f0f0f0"
+        text: "test"
         visible: true
-    }
-
-    Item {
-        id: wheelContainer
-        height: 512; width: height
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: pathView.bottom
-        anchors.bottomMargin: -300
-
-        GradientWheel {
-            id: gradientWheel
-
-
-            onBrightnessLevelChanged: {
-                if(groups.get(groupId) && !timer.running) {
-                    groups.get(groupId).bri = brightnessLevel
-                    timer.start()
-                }
-            }
-            onColorLevelChanged: {
-                if(groups.get(groupId) && !timer.running) {
-                    groups.get(groupId).color = colorLevel
-                    timer.start()
-                }
-            }
-        }
-
-        NMapEffect {
-            id: gradientWheelNormalMap
-            sourceGraphics: gradientWheel
-            normalsImage: "images/gradient_wheel_n.png"
-            lightSource: lightSourceItem
-            switchX: true
-            switchY: true
-            elementPositionX: wheelContainer.x
-            elementPositionY: wheelContainer.y
-            colorizeAmount: 0.2
-            diffuseBoost: 0.5
-        }
-
-        Timer {
-            id: timer
-            interval: 500
-        }
     }
 }

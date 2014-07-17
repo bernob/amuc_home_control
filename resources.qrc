@@ -122,14 +122,22 @@
         <file>Carousel/images/diningtablen.png</file>
         <file>Carousel/images/bookcase.png</file>
         <file>Carousel/images/bookcasen.png</file>
-        <file>GradientWheel.qml</file>
-        <file>images/gradientwheel.png</file>
-        <file>images/gradient_wheel_brightness_circle.png</file>
-        <file>images/gradient_wheel_color_circle.png</file>
-        <file>images/gradient_wheel_inner_circle.png</file>
-        <file>images/gradient_wheel_middle_surface.png</file>
-        <file>images/gradient_wheel_outer_circle.png</file>
+        <file>Carousel/images/gradient_wheel_brightness_circle.png</file>
+        <file>Carousel/images/gradient_wheel_color_circle.png</file>
+        <file>Carousel/images/gradient_wheel_inner_circle.png</file>
+        <file>Carousel/images/gradient_wheel_middle_surface.png</file>
+        <file>Carousel/images/gradient_wheel_outer_circle.png</file>
         <file>Carousel/images/gradient_wheel_n.png</file>
         <file>Carousel/images/gradient_wheel.png</file>
+        <file>Carousel/images/gauge.png</file>
+        <file>Carousel/images/sliderknob.png</file>
+        <file>Carousel/GradientWheel.qml</file>
+        <file>images/fanOff.png</file>
+        <file>images/fanOn.png</file>
+        <file>images/outletOff.png</file>
+        <file>images/outletOn.png</file>
+        <file>images/unlocked.png</file>
+        <file>Carousel/images/diningareaOff.png</file>
+        <file>Carousel/images/diningareaOn.png</file>
     </qresource>
 </RCC>

@@ -1,29 +1,29 @@
-import QtQuick 2.0
+import QtQuick 2.3
 
 ListModel {
     ListElement {
         name: "Library"
-        sourceIcon: "images/bookcase.png"
-        normalsIcon: "images/bookcasen.png"
+        onsource: "images/gauge.png"
+        offsource: "images/gauge.png"
     }
     ListElement {
         name: "Living Room"
-        sourceIcon: "images/diningtable.png"
-        normalsIcon: "images/diningtablen.png"
+        onsource: "images/gauge.png"
+        offsource: "images/gauge.png"
     }
     ListElement {
         name: "Dining Table"
-        sourceIcon: "images/diningtable.png"
-        normalsIcon: "images/diningtablen.png"
+        onsource: "images/diningareaOn.png"
+        offsource: "images/diningareaOff.png"
     }
     ListElement {
         name: "TV"
-        sourceIcon: "images/tv.png"
-        normalsIcon: "images/tvn.png"
+        onsource: "images/gauge.png"
+        offsource: "images/gauge.png"
     }
     ListElement {
         name: "TV"
-        sourceIcon: "images/tv.png"
-        normalsIcon: "images/tvn.png"
+        onsource: "images/gauge.png"
+        offsource: "images/gauge.png"
     }
 }

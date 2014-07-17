@@ -61,10 +61,10 @@ ApplicationWindow {
 //        source: "images/background2.jpg"
 //    }
 
-//    TimeAndDateBar {
-//        id: timeAndDateBar
-//        width: parent.width; height: 200;
-//    }
+    TimeAndDateBar {
+        id: timeAndDateBar
+        width: parent.width; height: 200;
+    }
 
 //    LightControl {
 //        id: lights
@@ -90,8 +90,8 @@ ApplicationWindow {
         width: parent.width
         height: 640
         //anchors.top: parent.top
-        //anchors.topMargin: 50
-        //anchors.top: timeAndDateBar.bottom
+        anchors.topMargin: 50
+        anchors.top: timeAndDateBar.bottom
     }
 
     TeslaComponent {

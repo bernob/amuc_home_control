@@ -29,7 +29,7 @@ OTHER_FILES += \
     LightControl.qml \
     Hal9000Button.qml \
     IconCarousel.qml \
-    GradientWheel.qml \
+    Carousel/GradientWheel.qml \
     Carousel/ContentModel.qml \
     Carousel/FpsItem.qml \
     Carousel/ListItem.qml \

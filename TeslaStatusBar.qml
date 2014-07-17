@@ -12,19 +12,23 @@ Item {
         ToggleButton {
             id: chargingToggle
             checked: true
-            icon: "images/plug.png"
+            on: "images/outletOn.png"
+            off: "images/outletOff.png"
         }
         ToggleButton {
             id: lockedToggle
-            icon: checked ? "images/locked.png" : "images/ulocked.png"
+            on: "images/unlocked.png"
+            off: "images/locked.png"
         }
         ToggleButton {
             id: preheatToggle
-            icon: "images/fan.png"
+            on: "images/fanOn.png"
+            off: "images/fanOff.png"
         }
         ToggleButton {
             id: startTeslaAppToggle
-            icon: "images/teslalogo.png"
+            on: "images/teslalogo.png"
+            off: "images/teslalogo.png"
             onToggled: checked = false;
         }
     }

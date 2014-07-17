@@ -32,7 +32,7 @@ Item {
                 highp vec2 pos = vec2(qt_TexCoord0.x, (1.0 - qt_TexCoord0.y*0.8));
                 pos.x += (qt_TexCoord0.y*0.2) * (pos.x * -1.0 + 1.0);
                 highp vec4 pix = texture2D(source, pos);
-                pix *= (0.4 - qt_TexCoord0.y*0.5) * min(qt_TexCoord0.y*5.0, 1.0);
+                pix *= (0.4 - qt_TexCoord0.y*0.5) * min(qt_TexCoord0.y*5.0, 1.0)*1.7;
                 gl_FragColor = pix * qt_Opacity;
             }"
     }
