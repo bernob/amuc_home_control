@@ -12,31 +12,18 @@ include(../shared/shared.pri)
 
 OTHER_FILES += \
     main.qml \
-    tesla/Tesla.qml \
-    tesla/Car.js \
-    hue/ColorPicker.qml \
-    hue/ColorPickerCt.qml \
-    hue/GroupsTab.qml \
-    hue/LightsControl.qml \
-    hue/LightsTab.qml \
-    hue/NewGroupWindow.qml \
-    hue/Shine.qml \
-    TeslaStatusBar.qml \
-    TeslaComponent.qml \
-    QUItBatteryComponent/QUItBattery.qml \
-    Slider.qml \
-    ToggleButton.qml \
+    Tesla/Car/Tesla.qml \
+    Tesla/Car/Tesla.js \
+    Tesla/ControlButtons/ToggleButton.qml \
+    Tesla/ControlButtons/ControlButtons.qml \
+    Tesla/TeslaComponent.qml \
+    Tesla/QUItBatteryComponent/QUItBattery.qml \
     TimeAndDateBar.qml \
-    LightControl.qml \
-    Hal9000Button.qml \
-    IconCarousel.qml \
+    Carousel/IconCarousel.qml \
     Carousel/GradientWheel.qml \
     Carousel/ContentModel.qml \
     Carousel/FpsItem.qml \
     Carousel/ListItem.qml \
-    Carousel/NMapEffect.qml \
-    Carousel/NMapLightSource.qml
-
 
 RESOURCES += \
     resources.qrc

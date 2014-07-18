@@ -3,14 +3,13 @@ import QtGraphicalEffects 1.0;
 
 Item {
     id: container;
-    width: 256;
+    width: 320;
     height: width;
     anchors.centerIn: parent;
 
     property real centerX : (width / 2);
     property real centerY : (height / 2);
     property int brightnessLevel: 0;
-    property int colorLevel: 0;
     property string offsource;
     property string onsource;
     property bool powerOn: true;
@@ -45,6 +44,7 @@ Item {
     MouseArea{
         id: brightnessCircleMouseArea
         anchors.fill: parent;
+
         onPositionChanged:  {
             var point =  mapToItem (container, mouse.x, mouse.y)
             var diffX = (point.x - container.centerX)
@@ -52,14 +52,36 @@ Item {
 
             rotate(diffX, diffY, brightnessCircle)
         }
+
         onReleased: {
             brightnessLevel = Math.round(((brightnessCircle.rotation - 45) * 255 ) / 360)
+        }
+
+        function rotate(dX, dY, imageToRotate){
+            var rad = Math.atan (dY / dX)
+            var deg = (rad * 180 / Math.PI)
+            if (dX > 0 && dY > 0) {
+                imageToRotate.rotation = 270 - Math.abs (deg)
+            }
+            else if (dX > 0 && dY < 0) {
+                imageToRotate.rotation = 270 + Math.abs (deg)
+            }
+            else if (dX < 0 && dY > 0) {
+                imageToRotate.rotation = 90 + Math.abs (deg)
+            }
+            else if (dX < 0 && dY < 0) {
+                imageToRotate.rotation = 90 - Math.abs (deg)
+            }
+            if(imageToRotate.rotation > 315)
+                imageToRotate.rotation = 315
+            else if(imageToRotate.rotation < 45)
+                imageToRotate.rotation = 45
         }
     }
 
     Rectangle {
         id: powerButtonArea;
-        width: parent.width - 120; height: width
+        width: parent.width - 160; height: width
         anchors.centerIn: parent
         color: "transparent";
         transformOrigin: Item.Center;
@@ -70,26 +92,5 @@ Item {
             id: powerButtonMouseArea
             anchors.fill: parent
         }
-    }
-
-    function rotate(dX, dY, imageToRotate){
-        var rad = Math.atan (dY / dX)
-        var deg = (rad * 180 / Math.PI)
-        if (dX > 0 && dY > 0) {
-            imageToRotate.rotation = 270 - Math.abs (deg)
-        }
-        else if (dX > 0 && dY < 0) {
-            imageToRotate.rotation = 270 + Math.abs (deg)
-        }
-        else if (dX < 0 && dY > 0) {
-            imageToRotate.rotation = 90 + Math.abs (deg)
-        }
-        else if (dX < 0 && dY < 0) {
-            imageToRotate.rotation = 90 - Math.abs (deg)
-        }
-        if(imageToRotate.rotation > 315)
-            imageToRotate.rotation = 315
-        else if(imageToRotate.rotation < 45)
-            imageToRotate.rotation = 45
     }
 }

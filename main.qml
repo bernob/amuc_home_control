@@ -42,6 +42,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 import "Carousel"
+import "Tesla"
 import Hue 0.1
 //import LauncherClient 0.1
 
