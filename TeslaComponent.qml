@@ -19,7 +19,7 @@ Item {
     ShaderEffect {
         anchors.top: tesla.bottom
         anchors.topMargin: -38
-        anchors.left: tesla.left
+        anchors.horizontalCenter: tesla.horizontalCenter
         width: tesla.width
         height: tesla.height
         property variant source: ShaderEffectSource { sourceItem: tesla; hideSource: false }
@@ -61,7 +61,7 @@ Item {
         SequentialAnimation on value {
             loops: Animation.Infinite
             running: teslaStatusBar.chargingOn
-            NumberAnimation { to: 1.0; duration: 200000; easing.type: Easing.Linear; easing.period: 1000 }
+            NumberAnimation { to: 1.0; duration: 2000000; easing.type: Easing.Linear; easing.period: 1000 }
             NumberAnimation { to: 0.0; duration: 5000; easing.type: Easing.Linear }
         }
     }

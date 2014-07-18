@@ -42,6 +42,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 import "Carousel"
+import Hue 0.1
 //import LauncherClient 0.1
 
 ApplicationWindow {
@@ -49,44 +50,23 @@ ApplicationWindow {
     visible: true
     width: 1280
     height: 1920 //1200
-    color: "#000000"
+    color: "#E0E0E0"
 
 //    LauncherClient {
 //        id: launcherClient
 //    }
-
-//    Image {
-//        id: background
-//        anchors.fill: parent
-//        source: "images/background2.jpg"
-//    }
+    //Physical spotlight groups
+    Groups {
+        id: groups
+    }
 
     TimeAndDateBar {
         id: timeAndDateBar
         width: parent.width; height: 200;
     }
 
-//    LightControl {
-//        id: lights
-//        width: parent.width; height: 900;
-//        anchors.top: timeAndDateBar.bottom
-//    }
-//    Item {
-//        id: lights
-//        width: parent.width; height: 900;
-//        Image {
-//            id: green
-//            anchors.centerIn: parent
-//            source: "images/zonebutton.png"
-//        }
-//        Image {
-//            id: red
-//            anchors.centerIn: parent
-//            source: "images/gradientblack.png"
-//        }
-//    }
     IconCarousel {
-        id: lights
+        id: lightControl
         width: parent.width
         height: 640
         //anchors.top: parent.top
@@ -100,7 +80,7 @@ ApplicationWindow {
         anchors.left: parent.left
     }
 
-    FpsItem {
-        id: fpsItem
-    }
+//    FpsItem {
+//        id: fpsItem
+//    }
 }

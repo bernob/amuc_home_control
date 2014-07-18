@@ -22,6 +22,7 @@
 
 #include "huebridgeconnection.h"
 
+#include <QQmlEngine>
 #include <QDebug>
 
 Groups::Groups(QObject *parent)
@@ -92,7 +93,9 @@ QHash<int, QByteArray> Groups::roleNames() const
 Group *Groups::get(int index) const
 {
     if (index > -1 && index  < m_list.count()) {
-        return m_list.at(index);
+        Group *group = m_list.at(index);
+        QQmlEngine::setObjectOwnership(group, QQmlEngine::CppOwnership);
+        return group;
     }
     return 0;
 }
@@ -113,6 +116,7 @@ void Groups::groupsReceived(int id, const QVariant &variant)
     foreach (const QString &groupId, groups.keys()) {
         Group *group = createGroupInternal(groupId.toInt(), groups.value(groupId).toMap().value("name").toString());
         connect(group, SIGNAL(lightsChanged()), this, SLOT(groupLightsChanged()));
+        qDebug() << "Created group: " << groupId.toInt();
     }
     endResetModel();
     emit countChanged();

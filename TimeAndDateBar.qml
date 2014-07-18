@@ -7,9 +7,11 @@ Item {
     Text {
         id: timeAndDate
         anchors.centerIn: parent
-        color: "white"
-        font.bold: true
+        color: "#0F0F0F"
+        style: Text.Outline
+        styleColor: "#FCFCFC"
         font.pixelSize: 108
+        font.bold: true
         antialiasing: true
     }
 

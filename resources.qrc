@@ -139,5 +139,11 @@
         <file>images/unlocked.png</file>
         <file>Carousel/images/diningareaOff.png</file>
         <file>Carousel/images/diningareaOn.png</file>
+        <file>Carousel/images/libraryOff.png</file>
+        <file>Carousel/images/libraryOn.png</file>
+        <file>Carousel/images/allOff.png</file>
+        <file>Carousel/images/allOn.png</file>
+        <file>Carousel/images/tvOff.png</file>
+        <file>Carousel/images/tvOn.png</file>
     </qresource>
 </RCC>

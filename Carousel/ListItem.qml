@@ -7,6 +7,7 @@ Item {
 
     property string name: model.name
     property alias brightnessLevel: gradientWheel.brightnessLevel
+    property alias powerOn: gradientWheel.powerOn
     property bool isSelected: pathView.currentIndex === model.index
     property real fogAmount: PathView.iconFog
 
@@ -23,6 +24,7 @@ Item {
             id: gradientWheel
             onsource: model.onsource
             offsource: model.offsource
+            brightnessCircle.enabled: isSelected
 
             powerButton.onClicked: {
                 if (isSelected) {

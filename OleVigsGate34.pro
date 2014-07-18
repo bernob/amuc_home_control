@@ -22,6 +22,7 @@ OTHER_FILES += \
     hue/NewGroupWindow.qml \
     hue/Shine.qml \
     TeslaStatusBar.qml \
+    TeslaComponent.qml \
     QUItBatteryComponent/QUItBattery.qml \
     Slider.qml \
     ToggleButton.qml \

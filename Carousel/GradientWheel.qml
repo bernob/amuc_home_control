@@ -15,6 +15,7 @@ Item {
     property string onsource;
     property bool powerOn: true;
     property alias powerButton: powerButtonMouseArea;
+    property alias brightnessCircle: brightnessCircleMouseArea
 
     Image {
         id: mainIcon;
@@ -42,6 +43,7 @@ Item {
         }
     }
     MouseArea{
+        id: brightnessCircleMouseArea
         anchors.fill: parent;
         onPositionChanged:  {
             var point =  mapToItem (container, mouse.x, mouse.y)

@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.3
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 
@@ -8,7 +8,7 @@ Item {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 16
+        spacing: 24
         ToggleButton {
             id: chargingToggle
             checked: true
