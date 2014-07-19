@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Item {
-    width: 1080
-    height: 320
+    width: 1200
+    height: 160
 
     Image {
         id: frame
