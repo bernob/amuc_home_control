@@ -2,7 +2,7 @@ import QtQuick 2.3
 import "Tesla.js" as TeslaAPI
 
 Item {
-    width: 750
+    width: 1280
     height: 300//285
     property int _id: 13598
     property string chargingState
@@ -29,6 +29,12 @@ Item {
 
     Item {
         id: teslaContainer
+        width: 750
+        height: 300
+        anchors.centerIn: parent
+
+        anchors.verticalCenterOffset: -60
+        anchors.horizontalCenterOffset: 30
         //scale: 1.33
 
         Text {

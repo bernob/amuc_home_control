@@ -3,7 +3,6 @@
         <file>main.qml</file>
         <file>TimeAndDateBar.qml</file>
         <file>Tesla/TeslaComponent.qml</file>
-
         <file>Tesla/Car/Tesla.qml</file>
         <file>Tesla/Car/Tesla.js</file>
         <file>Tesla/Car/images/battery_edge.png</file>
@@ -35,7 +34,6 @@
         <file>Tesla/Car/images/sunroof_vent.png</file>
         <file>Tesla/Car/images/trunk_closed_newred.png</file>
         <file>Tesla/Car/images/trunk_open_newred.png</file>
-
         <file>Tesla/ControlButtons/ControlButtons.qml</file>
         <file>Tesla/ControlButtons/ToggleButton.qml</file>
         <file>Tesla/ControlButtons/images/fanOff.png</file>
@@ -45,14 +43,12 @@
         <file>Tesla/ControlButtons/images/outletOn.png</file>
         <file>Tesla/ControlButtons/images/teslalogo.png</file>
         <file>Tesla/ControlButtons/images/unlocked.png</file>
-
         <file>Tesla/QUItBatteryComponent/QUItBattery.qml</file>
         <file>Tesla/QUItBatteryComponent/images/bar_level2.png</file>
         <file>Tesla/QUItBatteryComponent/images/battery_bar.png</file>
         <file>Tesla/QUItBatteryComponent/images/battery2.png</file>
         <file>Tesla/QUItBatteryComponent/images/lightning.png</file>
         <file>Tesla/QUItBatteryComponent/images/particle.png</file>
-
         <file>Carousel/ContentModel.qml</file>
         <file>Carousel/FpsItem.qml</file>
         <file>Carousel/GradientWheel.qml</file>
@@ -67,5 +63,12 @@
         <file>Carousel/images/diningareaOff.png</file>
         <file>Carousel/images/diningareaOn.png</file>
         <file>Carousel/images/sliderknob.png</file>
+
+        <file>images/light-bulb-icon.png</file>
+        <file>images/teslachrome.png</file>
+        <file>images/lock.png</file>
+        <file>images/component_frame.png</file>
+        <file>images/small_component_frame.png</file>
+        <file>ComponentsSelector.qml</file>
     </qresource>
 </RCC>

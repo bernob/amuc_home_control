@@ -49,7 +49,7 @@ import Hue 0.1
 ApplicationWindow {
     id: mainView
     visible: true
-    width: 1280
+    width: 1200
     height: 1920 //1200
     color: "#E0E0E0"
 
@@ -66,6 +66,7 @@ ApplicationWindow {
         width: parent.width; height: 200;
     }
 
+    //Should include touch&hold menu to scheduel lights and attach events
     IconCarousel {
         id: lightControl
         width: parent.width
@@ -77,8 +78,14 @@ ApplicationWindow {
 
     TeslaComponent {
         id: teslaComponent
+        anchors.bottom: componentsSelector.top
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    ComponentsSelector {
+        id: componentsSelector
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
 //    FpsItem {

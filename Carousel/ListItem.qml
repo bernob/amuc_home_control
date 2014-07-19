@@ -32,13 +32,13 @@ Item {
             }
         }
     }
-    MouseArea {
-        anchors.fill: parent
-        propagateComposedEvents: true
-        onClicked: {
-            if (!isSelected)
-                pathView.currentIndex = model.index
-            mouse.accepted = false
-        }
-    }
+//    MouseArea {
+//        anchors.fill: parent
+//        propagateComposedEvents: true
+//        onClicked: {
+//            if (!isSelected)
+//                pathView.currentIndex = model.index
+//            mouse.accepted = false
+//        }
+//    }
 }

@@ -19,6 +19,7 @@ OTHER_FILES += \
     Tesla/TeslaComponent.qml \
     Tesla/QUItBatteryComponent/QUItBattery.qml \
     TimeAndDateBar.qml \
+    ComponentsSelector.qml \
     Carousel/IconCarousel.qml \
     Carousel/GradientWheel.qml \
     Carousel/ContentModel.qml \

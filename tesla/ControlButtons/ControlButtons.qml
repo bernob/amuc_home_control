@@ -3,6 +3,7 @@ import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 
 Item {
+    height: 584; width: 50
     property alias startTeslaAppToggle: startTeslaAppToggle
     property alias chargingOn: chargingToggle.checked
 
